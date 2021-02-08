@@ -206,4 +206,18 @@ class Ead3RecordDriverTest extends RecordDriverTest
             $fields['search_daterange_mv']
         );
     }
+
+    /**
+     * Test FSD EAD3 record handling.
+     *
+     * @return void
+     */
+    public function testFsd2()
+    {
+        $fields = $this->createRecord(Ead3::class, 'fsd2.xml')->toSolrArray();
+        $this->assertContains(
+            '[2017-01-20 TO 2018-04-30]',
+            $fields['search_daterange_mv']
+        );
+    }
 }
